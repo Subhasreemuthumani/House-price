@@ -1,27 +1,22 @@
 import pandas as pd
-from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 import joblib
 
-# Load cleaned dataset
+# Load cleaned data
 df = pd.read_csv("data/cleaned_house.csv")
 
-# Updated feature list with an additional feature
-features = ['Gr Liv Area', 'Overall Qual', 'Garage Cars', 'Total Bsmt SF', 'YearBuilt']
+# Check that 'Year Built' is present
+assert 'Year Built' in df.columns, "❌ 'Year Built' column not found in dataset!"
 
-# Ensure all required features exist
-missing = [f for f in features if f not in df.columns]
-if missing:
-    raise ValueError(f"Missing features in dataset: {missing}")
-
+# Define features and target
+features = ['Gr Liv Area', 'Overall Qual', 'Garage Cars', 'Total Bsmt SF', 'Year Built']
 X = df[features]
-y = df["SalePrice"]
+y = df['SalePrice']
 
-# Split and train
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+# Train model
 model = LinearRegression()
-model.fit(X_train, y_train)
+model.fit(X, y)
 
 # Save model
 joblib.dump(model, "house_model.pkl")
-print("✅ Model trained and saved successfully.")
+print("✅ Model trained and saved to models/house_model.pkl")
