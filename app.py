@@ -12,7 +12,7 @@ def format_in_inr(amount):
 @st.cache_resource
 def load_model():
     try:
-        return joblib.load("models/house_model.pkl")
+        return joblib.load("house_model.pkl")
     except FileNotFoundError:
         st.error("❌ Model file not found in models/house_model.pkl")
         return None
