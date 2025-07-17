@@ -6,7 +6,7 @@ import locale
 locale.setlocale(locale.LC_ALL, 'en_IN.UTF-8')
 
 # Load trained model
-model = joblib.load("models/house_model.pkl")
+model = joblib.load("house_model.pkl")
 
 features = ['Gr Liv Area', 'Overall Qual', 'Garage Cars', 'Total Bsmt SF', 'YearBuilt']
 input_values = []
