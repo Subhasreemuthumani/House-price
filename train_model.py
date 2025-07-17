@@ -1,0 +1,25 @@
+import pandas as pd
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+import joblib
+
+# Load cleaned dataset
+df = pd.read_csv("data/cleaned_house.csv")
+
+# Select relevant features and target
+features = ['Gr Liv Area', 'Overall Qual', 'Garage Cars', 'Total Bsmt SF']
+target = 'SalePrice'
+
+X = df[features]
+y = df[target]
+
+# Train-test split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Train Linear Regression model
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+# Save model
+joblib.dump(model, "models/house_model.pkl")
+print("✅ Model trained and saved as 'house_model.pkl'")
