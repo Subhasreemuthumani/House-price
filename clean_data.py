@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Load dataset
-df = pd.read_csv("data/house.csv")
+df = pd.read_csv("house.csv")
 
 # Drop columns with >30% missing values
 df = df.dropna(thresh=len(df) * 0.7, axis=1)
@@ -22,5 +22,5 @@ if 'Id' in df.columns:
     df = df.drop(columns=['Id'])
 
 # Save cleaned dataset
-df.to_csv("data/cleaned_house.csv", index=False)
-print("✅ Cleaned data saved to 'data/cleaned_house.csv'")
+df.to_csv("cleaned_house.csv", index=False)
+print("✅ Cleaned data saved to 'cleaned_house.csv'")
