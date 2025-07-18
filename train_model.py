@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 import joblib
 
 # Load cleaned data
-df = pd.read_csv("data/cleaned_house.csv")
+df = pd.read_csv("cleaned_house.csv")
 
 # Select features and target
 features = ["Gr Liv Area", "Overall Qual", "Garage Cars", "Total Bsmt SF"]
