@@ -21,5 +21,5 @@ model = LinearRegression()
 model.fit(X_train, y_train)
 
 # Save model
-joblib.dump(model, "models/house_model.pkl")
-print("✅ Model trained and saved as models/house_model.pkl")
+joblib.dump(model, "house_model.pkl")
+print("✅ Model trained and saved as house_model.pkl")
