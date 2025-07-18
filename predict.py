@@ -3,7 +3,7 @@ import joblib
 
 # Load trained model
 try:
-    model = joblib.load("models/house_model.pkl")
+    model = joblib.load("house_model.pkl")
 except FileNotFoundError:
     print("❌ Model file not found! Train it using train_model.py")
     exit()
